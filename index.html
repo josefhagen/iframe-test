@@ -13,9 +13,9 @@
         location.search.substring(1)
           .split('&')
           .map(function(qs) { return qs.split('=') });
-      const pressroomName =
+      const newsroomName =
         (
-          query.find(function (qs) { return qs[0] === 'pressroom' })
+          query.find(function (qs) { return qs[0] === 'newsroom' })
             || [null, "mynewsdesk"]
         )[1];
       const serverName =
@@ -27,7 +27,7 @@
       const s = document.createElement('script');
       s.type = 'text/javascript';
       s.async = true;
-      s.src = 'https://' + pressroomName + '.' + serverName + '/hosted_newsroom.js';
+      s.src = 'https://' + newsroomName + '.' + serverName + '/hosted_newsroom.js';
       const i = document.getElementsByTagName('script')[0];
       i.parentNode.insertBefore(s, i);
     })();
