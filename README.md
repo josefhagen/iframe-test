@@ -7,4 +7,4 @@ Or more specific: https://mynewsdesk.github.io/iframe-test?newsroom=press&server
 ## Available options:
 
 - **pressroom:** The subdomain of the hosted newsroom to show. Default: `press` (Mynewsdesk's own hosted newsroom for Sweden)
-- **server:** The server to load the iframe from as FQDN. Default: `mynewsdesk.com` (production)
+- **server:** The server to load the iframe from. Default: `mynewsdesk.com` (production)
