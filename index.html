@@ -9,19 +9,25 @@
 <div style="border:1px dotted red">
   <script type="text/javascript" charset="utf-8" id="mnd-script">
     (function(){
+      const query =
+        location.search.substring(1)
+          .split('&')
+          .map(function(qs) { return qs.split('=') });
       const pressroomName =
         (
-          location.search.substring(1)
-            .split('&')
-            .map(function(qs) { return qs.split('=') })
-            .find(function (qs) { return qs[0] === 'pressroom' })
-          || [null, "mynewsdesk"]
+          query.find(function (qs) { return qs[0] === 'pressroom' })
+            || [null, "mynewsdesk"]
+        )[1];
+      const serverName =
+        (
+          query.find(function (qs) { return qs[0] === 'server' })
+            || [null, "mynewsdesk.com"]
         )[1];
 
       const s = document.createElement('script');
       s.type = 'text/javascript';
       s.async = true;
-      s.src = 'https://' + pressroomName + '.mynewsdesk.com/hosted_newsroom.js';
+      s.src = 'https://' + pressroomName + '.' + serverName + '/hosted_newsroom.js';
       const i = document.getElementsByTagName('script')[0];
       i.parentNode.insertBefore(s, i);
     })();
